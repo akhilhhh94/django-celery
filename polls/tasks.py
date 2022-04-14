@@ -18,4 +18,4 @@ def send_feedback_email(email, message):
     subject = 'Thank you for registering to our site'
     email_from = settings.EMAIL_HOST_USER
     recipient_list = [email]
-    send_mail(subject, message, email_from, html_message=)
+    send_mail(subject, message, email_from)
