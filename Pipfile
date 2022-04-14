@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 django = "==4.0"
-celery = "*"
 redis = "*"
+celery = "==4.4.2"
 
 [dev-packages]
 

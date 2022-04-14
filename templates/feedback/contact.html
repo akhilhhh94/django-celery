@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" media="screen,projection"/>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Feedback</title>
+</head>
+<body>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            {% if messages %}
+            <div class="col s12">
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                        <div class="col s12 m10 l10 offset-m1 offset-l1">
+                            <div class="chip green" style="padding: 10px 10px 10px 10px; width: 100%; height: 50px;">
+                                <i class=" close material-icons right white-text">close</i>
+                                <h6 class="white-text"><b>SUCCESS!</b> {{ message }}</h6>
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col s3">
+                <button data-target="feedback-modal" class="waves-effect z-depth-5 waves-light btn modal-trigger">Got
+                    Feedback?
+                </button>
+            </div>
+        </div>
+        <div>
+
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <h3>Feedback</h3>
+                <form action="" method="post">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+{% block extrabody %}{% endblock %}
+</body>
+</html>
