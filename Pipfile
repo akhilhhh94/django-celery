@@ -7,6 +7,8 @@ name = "pypi"
 django = "==4.0"
 redis = "*"
 celery = "==4.4.2"
+channels = "*"
+channels-redis = "*"
 
 [dev-packages]
 
